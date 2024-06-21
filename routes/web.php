@@ -21,9 +21,7 @@ Route::get('/', function () {
     return view('front.home');
 });
 
-Route::get('/mkh', function () {
-    return view('front.home');
-});
+
 
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',])->group(function () {
