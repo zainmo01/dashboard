@@ -24,7 +24,7 @@ Route::get('/dashboard_laravel', function () {
     return view('dashboard');
 });
 
-Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',])->group(function () {
+Route::middleware(['check_user'])->group(function () {
 
     Route::get('/dashboard', function () {
         return view('layouts.admin');
