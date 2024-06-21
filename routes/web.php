@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\AAdmin\LoginController as AAdminLoginController;
+use App\Http\Controllers\Auth\AdminController;
+use App\Http\Middleware\AdminAuth;
+use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,15 +18,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('front.home');
 });
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-])->group(function () {
+
+Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',])->group(function () {
+
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        return view('layouts.admin');
     })->name('dashboard');
 });
