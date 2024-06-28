@@ -428,13 +428,11 @@
                             data-kt-menu-placement="left-start" data-kt-menu-offset="-15px, 0">
                             <a href="#" class="menu-link px-5">
                                 <span class="menu-title position-relative">
-                                    Language
+                                    اللغة
                                     <span
                                         class="fs-8 rounded bg-light px-3 py-2 position-absolute translate-middle-y top-50 end-0">
-                                        English
-                                        <img class="w-15px h-15px rounded-1 ms-2"
-                                            src="{{ asset('assets') }}/admin/media/flags/united-states.svg"
-                                            alt="">
+                                        {{ App\Models\Language::count() }}
+
                                     </span>
                                 </span>
                             </a>
@@ -445,16 +443,21 @@
                                 <div class="menu-item px-3">
                                     <a href="account/settings.html" class="menu-link d-flex px-5 active">
                                         <span class="symbol symbol-20px me-4">
-                                            <img class="rounded-1"
-                                                src="{{ asset('assets') }}/admin/media/flags/united-states.svg"
-                                                alt="">
+
                                         </span>
-                                        English
+                                        <span>
+                                            <div class="d-flex mx-3 justify-between ">
+                                                <div>اضافة لغة جديدة</div>
+                                                <div>
+                                                    <i class="fa-solid fa-plus"></i>
+                                                </div>
+                                            </div>
+                                        </span>
                                     </a>
                                 </div>
                                 <!--end::Menu item-->
 
-                                <!--begin::Menu item-->
+                                {{-- <!--begin::Menu item-->
                                 <div class="menu-item px-3">
                                     <a href="account/settings.html" class="menu-link d-flex px-5">
                                         <span class="symbol symbol-20px me-4">
@@ -503,7 +506,7 @@
                                         </span>
                                         French
                                     </a>
-                                </div>
+                                </div> --}}
                                 <!--end::Menu item-->
                             </div>
                             <!--end::Menu sub-->
