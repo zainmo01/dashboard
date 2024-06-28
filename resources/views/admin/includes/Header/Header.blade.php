@@ -441,7 +441,7 @@
                             <div class="menu-sub menu-sub-dropdown w-175px py-4">
                                 <!--begin::Menu item-->
                                 <div class="menu-item px-3">
-                                    <a href="account/settings.html" class="menu-link d-flex px-5 active">
+                                    <a href="{{ route('admin.lang') }}" class="menu-link d-flex px-5 active">
                                         <span class="symbol symbol-20px me-4">
 
                                         </span>

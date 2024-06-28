@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AAdmin\LoginController as AAdminLoginController;
 use App\Http\Controllers\Auth\AdminController;
+use App\Http\Controllers\LanguageController;
 use App\Http\Middleware\AdminAuth;
 use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\Route;
@@ -29,4 +30,8 @@ Route::middleware(['check_user'])->group(function () {
     Route::get('/dashboard', function () {
         return view('layouts.admin');
     })->name('dashboard');
+
+    Route::prefix('languages')->group(function () {
+        Route::get('lang', [LanguageController::class, 'getLang'])->name('admin.lang');
+    });
 });
