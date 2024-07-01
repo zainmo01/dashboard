@@ -27,7 +27,7 @@ class LanguageController extends Controller
         $validator = Validator::make($request->all(), [
             'name'          => ['required', 'string', 'max:255'],
             'abbr'          => ['required'],
-            'active'        => ['required', 'max:255'],
+            'active'        => ['nullable', 'max:255'],
             'direction'     => ['nullable', 'max:255'],
             'local'         => ['required', 'string'],
             'img'           => ['nullable', 'string']

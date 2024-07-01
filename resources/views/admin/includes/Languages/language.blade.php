@@ -14,13 +14,13 @@
             </div>
         </div>
     </div>
-    <div class="app-toolbar py-3 py-lg-6 mx-10">
+    <div>
 
-        <div class="py-5">
-            <div class="table-responsive">
-                <table class="table table-row-dashed table-row-gray-300 gy-7">
+        <div class="py-5 mx-24">
+            <div class="table-responsive   ">
+                <table class="table table-striped gy-7 gs-7  ">
                     <thead>
-                        <tr class="fw-bold fs-6 text-gray-800">
+                        <tr class="fw-semibold  text-center fs-6 text-gray-800 border-bottom border-gray-200">
                             <th>Name</th>
                             <th>Abbr</th>
                             <th>Local</th>
@@ -65,13 +65,13 @@
                             background-image: url('svg/avatars/blank-dark.svg');
                         }
                     </style>
-                    <form action="{{ route('languages.store') }}" id="kt_docs_repeater_form" class="form mt-10"
+                    <form action="{{ route('languages.store') }}" id="kt_docs_repeater_form" class="form mt-10 "
                         action="POST" autocomplete="off">
                         @csrf
-                        <div class="form-group">
+                        <div class="form-group ">
                             <div data-repeater-list="data">
-                                <div data-repeater-item>
-                                    <div class="fv-row form-group row mb-5">
+                                <div class="" data-repeater-item>
+                                    <div class=" fv-row form-group row mb-5">
                                         <div class="col-md-4">
                                             <label class="form-label">اسم اللغه</label>
                                             <input type="text" class="form-control mb-2 mb-md-0" name="name"
@@ -82,16 +82,21 @@
                                             <input type="text" class="form-control mb-2 mb-md-0" name="abbr"
                                                 placeholder="Enter contact number" />
                                         </div>
+                                        <div class="col-md-4 ">
+                                            <label class="form-label">الحاله </label>
+                                            <select name="active" class="form-select" data-control="select2"
+                                                data-placeholder="Select an option">
+                                                <option value="active">مفعل</option>
+                                                <option value="inactive"> غير مفعل</option>
+                                            </select>
+
+                                        </div>
                                         <div class="col-md-4">
                                             <label class="form-label">المحلي</label>
                                             <input type="text" class="form-control mb-2 mb-md-0" name="local"
                                                 placeholder="Enter contact number" />
                                         </div>
-                                        <div class="col-md-4">
-                                            <label class="form-label">الحاله </label>
-                                            <input type="checkbox" class="form-control mb-2 mb-md-0  " name="active"
-                                                placeholder="Enter contact number" />
-                                        </div>
+
                                         <div class="col-md-4">
                                             <label class="form-label">الاتجاه </label>
                                             <select name="direction" class="form-select" data-control="select2"
@@ -169,6 +174,12 @@
             $('#kt_docs_repeater_form').submit(function(e) {
                 e.preventDefault();
                 var data = new FormData(this);
+                if ($('#flexSwitchDefault').is(':checked')) {
+                    data.set('active', 1);
+                } else {
+                    data.set('active', 0);
+                }
+
                 $.ajax({
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
