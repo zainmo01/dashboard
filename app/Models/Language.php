@@ -14,4 +14,9 @@ class Language extends Model
     {
         return $item->where('active', 1);
     }
+
+    public function scopeSelection($item)
+    {
+        return $item->select('abbr', 'name', 'direction', 'active');
+    }
 }

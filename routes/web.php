@@ -30,8 +30,6 @@ Route::middleware(['check_user'])->group(function () {
     Route::get('/dashboard', function () {
         return view('layouts.admin');
     })->name('dashboard');
-
-    Route::prefix('languages')->group(function () {
-        Route::get('lang', [LanguageController::class, 'getLang'])->name('admin.lang');
-    });
+    Route::get('lang', [LanguageController::class, 'getLang'])->name('admin.lang');
+    Route::resource('/languages', LanguageController::class);
 });
