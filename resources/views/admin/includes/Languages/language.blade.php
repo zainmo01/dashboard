@@ -142,9 +142,9 @@
                     dataType: 'json',
                     url: "{{ route('languages.store') }}",
                     success: function(response) {
-                        // $('#language_section tbody').html('');
+                        $('#language_section tbody').html('');
                         // $('#language_section').DataTable().destroy();
-                        // $('#language_section tbody').empty();
+                        $('#language_section tbody').empty();
                         $.each(response.items, function(key, data) {
                             $('#language_section').append(`
                         <tr>
@@ -201,10 +201,10 @@
                             });
                         } else {
                             getitem();
-                            $('#language_section tbody').html('');
 
+                            $('#language_section tbody').html('');
                             $('#kt_modal_2').modal('hide');
-                            // $('#kt_docs_repeater_form')[0].reset();
+                            $('#kt_docs_repeater_form')[0].reset();
                             Swal.fire({
                                 icon: 'success',
                                 title: response.message,
@@ -212,7 +212,7 @@
                         }
                     }
                 });
-                getitem();
+
             });
 
             $(document).on('click', '.edit_item_btn', function() {
